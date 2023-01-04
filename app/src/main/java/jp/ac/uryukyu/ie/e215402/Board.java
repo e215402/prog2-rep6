@@ -18,8 +18,6 @@ public class Board extends JFrame {
 
     // フィールド
     private DiscManager discs; // ディスクのリスト
-    private String lastPiecePlaced = ""; // 最後に置かれたピースの色
-    
 
     /**
      * コンストラクタ。
@@ -110,8 +108,8 @@ public class Board extends JFrame {
                     //     return;
                     // }
                     // 最後に置かれたピースの色を反転させ、新しいピースの色を設定
-                    String newColor = lastPiecePlaced.equals("X") ? "O" : "X";
-                    lastPiecePlaced = newColor;
+                    String newColor = discs.getLastDicsPlaced().equals("X") ? "O" : "X";
+                    discs.setLastDiscPlaced(newColor);
 
                     // 新しいピースを設置
                     Disc newDisc = new Disc(x, y, newColor);

@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class DiscManager {
     private List<Disc> discs;
+    private String LastDiscPlaced = ""; 
     
     
     public DiscManager() {
@@ -24,6 +25,12 @@ public class DiscManager {
 
     public List<Disc> getDiscs() {
         return discs;
+    }
+    public String getLastDicsPlaced() {
+        return LastDiscPlaced;
+    }
+    public void setLastDiscPlaced(String LastDiscPlaced) {
+        this.LastDiscPlaced = LastDiscPlaced;
     }
     /**
      * 指定された位置にあるディスクを取得する。
