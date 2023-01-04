@@ -9,7 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
-
 public class Board extends JFrame {
     // 定数
     private static final int BOARD_SIZE = 8; // ボードのサイズ
@@ -38,7 +37,11 @@ public class Board extends JFrame {
         add(new GameBoard());
         setVisible(true);
     }
-    //ゲーム終了画面
+    /**
+     * ゲーム終了画面
+     * 
+     * @param message
+     */
     public void showMessageWindow(String message) {
         JFrame frame = new JFrame();
         frame.setTitle("Game Over");

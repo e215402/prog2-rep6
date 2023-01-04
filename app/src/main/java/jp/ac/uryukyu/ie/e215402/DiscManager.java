@@ -4,34 +4,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 盤上全てのコマを管理する
+ * 盤上全てのディスクを管理する
  */
 public class DiscManager {
     private List<Disc> discs;
     private String LastDiscPlaced = ""; 
     
     
+    //コンストラクタ
     public DiscManager() {
         discs = new ArrayList<>();
     }
 
+    /**
+    *ディスクを追加する
+    @param disc 追加するディスク
+    */
     public void addDisc(Disc disc) {
         discs.add(disc);
     }
 
-    public void removeDisc(Disc disc) {
-        discs.remove(disc);
-    }
-
+    /**
+    *盤上のすべてのディスクを取得する
+    @return 盤上のすべてのディスク
+    */
     public List<Disc> getDiscs() {
         return discs;
     }
+
+    /**
+    *最後に置かれたディスクの色を取得する。
+    @param lastDiscPlaced 最後に置かれたディスクの色
+    */
     public String getLastDicsPlaced() {
         return LastDiscPlaced;
     }
+
+    /**
+    *最後に置かれたディスクの色を設定する。
+    @param lastDiscPlaced 最後に置かれたディスクの色
+    */
     public void setLastDiscPlaced(String LastDiscPlaced) {
         this.LastDiscPlaced = LastDiscPlaced;
     }
+
     /**
      * 指定された位置にあるディスクを取得する。
      * 
@@ -47,8 +63,11 @@ public class DiscManager {
         }
         return null;
     }
+
     /**
      * 勝敗を判定する
+     * 
+     * @return ゲームの勝者を宣言する
      */
     public String JudgeGame(){
         int blackCount = 0;
