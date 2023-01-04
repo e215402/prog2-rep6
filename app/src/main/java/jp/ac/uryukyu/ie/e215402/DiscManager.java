@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 盤上全てのマスを管理する
+ * 盤上全てのコマを管理する
  */
 public class DiscManager {
     private List<Disc> discs;
