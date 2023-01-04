@@ -11,39 +11,45 @@ public class DiscManager {
     private String LastDiscPlaced = ""; 
     
     
-    //コンストラクタ
+    /**
+     * コンストラクタ
+     * */
     public DiscManager() {
         discs = new ArrayList<>();
     }
 
     /**
-    *ディスクを追加する
-    @param disc 追加するディスク
-    */
+     * ディスクを追加する
+     * 
+     * @param disc 追加するディスク
+     * */
     public void addDisc(Disc disc) {
         discs.add(disc);
     }
 
     /**
-    *盤上のすべてのディスクを取得する
-    @return 盤上のすべてのディスク
+    * 盤上のすべてのディスクを取得する
+    *
+    * @return 盤上のすべてのディスク
     */
     public List<Disc> getDiscs() {
         return discs;
     }
 
     /**
-    *最後に置かれたディスクの色を取得する。
-    @param lastDiscPlaced 最後に置かれたディスクの色
-    */
+     * 最後に置かれたディスクの色を取得する。
+     * 
+     * @param lastDiscPlaced 最後に置かれたディスクの色
+     * */
     public String getLastDicsPlaced() {
         return LastDiscPlaced;
     }
 
     /**
-    *最後に置かれたディスクの色を設定する。
-    @param lastDiscPlaced 最後に置かれたディスクの色
-    */
+     * 最後に置かれたディスクの色を設定する。
+     * 
+     * @param lastDiscPlaced 最後に置かれたディスクの色
+    **/
     public void setLastDiscPlaced(String LastDiscPlaced) {
         this.LastDiscPlaced = LastDiscPlaced;
     }
