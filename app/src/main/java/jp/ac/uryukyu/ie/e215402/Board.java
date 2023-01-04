@@ -105,6 +105,10 @@ public class Board extends JFrame {
                     // if (!canPutDisc(x, y)) {
                     //     return;
                     // }
+                      // この位置にディスクを設置できるかを確認
+                    // if (!GameMaster.canFlip(discs, x, y, lastPiecePlaced, 0)) {
+                    //     return;
+                    // }
                     // 最後に置かれたピースの色を反転させ、新しいピースの色を設定
                     String newColor = lastPiecePlaced.equals("X") ? "O" : "X";
                     lastPiecePlaced = newColor;
@@ -121,76 +125,5 @@ public class Board extends JFrame {
                 }
             });
         }
-        
-        // /**
-        //  * 指定された位置にあるディスクを取得する。
-        //  * 
-        //  * @param x x座標
-        //  * @param y y座標
-        //  * @return 指定された位置にあるディスク。ない場合はnull。
-        //  */
-        // public Disc getDiscAtLocation(int x, int y) {
-        //     for (Disc disc : discs.getDiscs()) {
-        //         if (disc.getX() == x && disc.getY() == y) {
-        //             return disc;
-        //         }
-        //     }
-        //     return null;
-        // }
-        
-        // public boolean canPlaceDiscAtLocation(int x, int y) {
-        //     for (Disc disc : discs.canPutDisc()) {
-        //         if (disc.getX() == x && disc.getY() == y) {
-        //             return false;
-        //         }
-        //     }
-        //     return true;
-        // }
-        
-        // ボード上の指定された場所に、新しいコマを置けるかどうかを判定する処理を追加
-        // public boolean canPutDisc(int x, int y) {
-        //     // 指定された場所にすでにコマがある場合、新しいコマを置けない
-        //     if (getDiscAtLocation(x, y) != null) {
-        //         return false;
-        //     }
-        //     // 上下左右に移動しながら、相手のコマを挟んでいるかを調べる
-        //     int[] dx = { -1, 0, 1, 0 };
-        //     int[] dy = { 0, -1, 0, 1 };
-        //     for (int i = 0; i < 4; i++) {
-        //         int nx = x + dx[i];
-        //         int ny = y + dy[i];
-        //         // 移動先がボード外の場合は、スキップする
-        //         if (nx < 0 || nx >= BOARD_SIZE || ny < 0 || ny >= BOARD_SIZE) {
-        //             continue;
-        //         }
-
-        //         Disc disc = getDiscAtLocation(nx, ny);
-        //         // 移動先に相手のコマがない場合は、スキップする
-        //         if (disc == null || disc.getColor().equals(lastPiecePlaced)) {
-        //             continue;
-        //         }
-
-        //         // 移動先からさらに移動して自分のコマがあるかを調べる
-        //         while (true) {
-        //             nx += dx[i];
-        //             ny += dy[i];
-        //             // 移動先がボード外の場合は、スキップする
-        //             if (nx < 0 || nx >= BOARD_SIZE || ny < 0 || ny >= BOARD_SIZE) {
-        //                 break;
-        //             }
-        //             Disc nextDisc = getDiscAtLocation(nx, ny);
-        //             // 移動先にコマがない場合は、スキップする
-        //             if (nextDisc == null) {
-        //                 break;
-        //             }
-        //             // 移動先に自分のコマがある場合は、新しいコマを置ける
-        //             if (nextDisc.getColor().equals(lastPiecePlaced)) {
-        //                 return true;
-        //             }
-        //         }
-        //     }
-        //     // 新しいコマを置ける場所が見つからなかった場合は、新しいコマを置けない
-        //     return false;
-        // }
     }
 }
