@@ -44,7 +44,7 @@ public class Board extends JFrame {
     public void showMessageWindow(String message) {
         JFrame frame = new JFrame();
         frame.setTitle("Game Over");
-        frame.setBounds(100, 100, 250, 100);
+        frame.setBounds(240, 250, 250, 100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
         JPanel panel = new JPanel();
@@ -66,7 +66,7 @@ public class Board extends JFrame {
             for (int i = 0; i < BOARD_SIZE; i++) {
                 for (int j = 0; j < BOARD_SIZE; j++) {
                     // この位置にあるディスクを取得
-                    Disc disc = getDiscAtLocation(i, j);
+                    Disc disc = discs.getDiscAtLocation(i, j);
 
                     // ディスクを描画するか、空白を描画する
                     if (disc == null) {
@@ -95,7 +95,7 @@ public class Board extends JFrame {
                     int y = e.getY() / CELL_SIZE;
 
                     // この位置にあるディスクを取得
-                    Disc disc = getDiscAtLocation(x, y);
+                    Disc disc = discs.getDiscAtLocation(x, y);
 
                     // この位置にすでにディスクがある場合は何もしない
                     if (disc != null) {
@@ -122,21 +122,21 @@ public class Board extends JFrame {
             });
         }
         
-        /**
-         * 指定された位置にあるディスクを取得する。
-         * 
-         * @param x x座標
-         * @param y y座標
-         * @return 指定された位置にあるディスク。ない場合はnull。
-         */
-        public Disc getDiscAtLocation(int x, int y) {
-            for (Disc disc : discs.getDiscs()) {
-                if (disc.getX() == x && disc.getY() == y) {
-                    return disc;
-                }
-            }
-            return null;
-        }
+        // /**
+        //  * 指定された位置にあるディスクを取得する。
+        //  * 
+        //  * @param x x座標
+        //  * @param y y座標
+        //  * @return 指定された位置にあるディスク。ない場合はnull。
+        //  */
+        // public Disc getDiscAtLocation(int x, int y) {
+        //     for (Disc disc : discs.getDiscs()) {
+        //         if (disc.getX() == x && disc.getY() == y) {
+        //             return disc;
+        //         }
+        //     }
+        //     return null;
+        // }
         
         // public boolean canPlaceDiscAtLocation(int x, int y) {
         //     for (Disc disc : discs.canPutDisc()) {

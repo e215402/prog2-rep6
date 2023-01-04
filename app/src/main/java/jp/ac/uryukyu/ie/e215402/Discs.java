@@ -25,7 +25,21 @@ public class Discs {
     public List<Disc> getDiscs() {
         return discs;
     }
-
+    /**
+     * 指定された位置にあるディスクを取得する。
+     * 
+     * @param x x座標
+     * @param y y座標
+     * @return 指定された位置にあるディスク。ない場合はnull。
+     */
+    public Disc getDiscAtLocation(int x, int y) {
+        for (Disc disc : getDiscs()) {
+            if (disc.getX() == x && disc.getY() == y) {
+                return disc;
+            }
+        }
+        return null;
+    }
     /**
      * 勝敗を判定する
      */
@@ -41,11 +55,11 @@ public class Discs {
         }
         if(blackCount+whiteCount==64){
             if (blackCount > whiteCount) {
-                return "黒の勝ち!";
+                return "黒の勝ち！";
             } else if (whiteCount > blackCount) {
-                return "白の勝ち!";
+                return "白の勝ち！";
             } else {
-                return "同点!";
+                return "同点！";
             }
         }
         return "";
