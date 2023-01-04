@@ -17,7 +17,7 @@ public class Board extends JFrame {
     private static final int WINDOW_SIZE = 500; // ウィンドウのサイズ
 
     // フィールド
-    private Discs discs; // ディスクのリスト
+    private DiscManager discs; // ディスクのリスト
     private String lastPiecePlaced = ""; // 最後に置かれたピースの色
     
 
@@ -26,7 +26,7 @@ public class Board extends JFrame {
      */
     public Board() {
         // ディスクのリストを初期化
-        discs = new Discs();
+        discs = new DiscManager();
         discs.addDisc(new Disc(3, 3, "X"));
         discs.addDisc(new Disc(4, 4, "X"));
         discs.addDisc(new Disc(4, 3, "O"));

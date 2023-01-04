@@ -1,5 +1,8 @@
 package jp.ac.uryukyu.ie.e215402;
 
+/**
+ * Discをひっくり返す処理を行うクラス
+ */
 public class GameMaster {
     // private static final int[] dx = {-1, 0, 1, 0, 1, 1, -1, -1};
     // private static final int[] dy = {0, 1, 0, -1, 1, -1, 1, -1};
@@ -31,5 +34,13 @@ public class GameMaster {
 
     //     // ひっくり返すべきコマがあるか再帰的に判定
     //     return canFlip(discs, x + dx[direction], y + dy[direction], color, direction);
+            // ひっくり返すべきコマがあった場合は、自分自身もひっくり返す
+    //         disc.setColor(color);
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    
     // }
 }

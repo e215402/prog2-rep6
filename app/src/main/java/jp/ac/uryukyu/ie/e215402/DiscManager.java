@@ -6,11 +6,11 @@ import java.util.List;
 /**
  * 盤上全てのマスを管理する
  */
-public class Discs {
+public class DiscManager {
     private List<Disc> discs;
     
     
-    public Discs() {
+    public DiscManager() {
         discs = new ArrayList<>();
     }
 
