@@ -69,7 +69,11 @@ public class DiscManager {
         }
         return null;
     }
-
+    
+    public int getDiscCount() {
+        return discs.size();
+    }
+    
     /**
      * 勝敗を判定する
      * 

@@ -91,12 +91,6 @@ public class Board extends JFrame {
                 int x = e.getX() / CELL_SIZE;
                 int y = e.getY() / CELL_SIZE;
                 
-                // // この位置にあるディスクを取得
-                // Disc disc = discs.getDiscAtLocation(x, y);
-                // // この位置にすでにディスクがある場合は何もしない
-                // if (disc != null) {
-                //     return;
-                // }
                 // 最後に置かれたピースの色を反転させ、新しいピースの色を設定
                 String newColor = discs.getLastDicsPlaced().equals("X") ? "O" : "X";
                 // 新しいピースを置けるか判定
@@ -112,9 +106,10 @@ public class Board extends JFrame {
                 // 新しいピースを設置
                 Disc newDisc = new Disc(x, y, newColor);
                 discs.addDisc(newDisc);
-                String gameResult = discs.JudgeGame();
                 // ゲームの状態を更新し、ボードを再描画
                 repaint();
+                //ゲームの終了を判定
+                String gameResult = discs.JudgeGame();
                 if (!gameResult.isEmpty()) {
                     showMessageWindow(gameResult);
                 }

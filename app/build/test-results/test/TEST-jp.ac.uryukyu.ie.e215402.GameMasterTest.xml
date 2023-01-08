@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="jp.ac.uryukyu.ie.e215402.GameMasterTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-01-08T04:53:21" hostname="e215402binoMacBook-Pro.local" time="0.008">
+<testsuite name="jp.ac.uryukyu.ie.e215402.GameMasterTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-01-08T05:46:34" hostname="e215402binoMacBook-Pro.local" time="0.007">
   <properties/>
-  <testcase name="canFlipTest()" classname="jp.ac.uryukyu.ie.e215402.GameMasterTest" time="0.008">
+  <testcase name="canFlipTest()" classname="jp.ac.uryukyu.ie.e215402.GameMasterTest" time="0.007">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -9,7 +9,7 @@
 	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
 	at app//org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
 	at app//org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:180)
-	at app//jp.ac.uryukyu.ie.e215402.GameMasterTest.canFlipTest(GameMasterTest.java:23)
+	at app//jp.ac.uryukyu.ie.e215402.GameMasterTest.canFlipTest(GameMasterTest.java:18)
 	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@17.0.5/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base@17.0.5/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -21,10 +21,9 @@ public class GameMaster {
         // 盤外に出ていたらfalseを返す
         int nx = x + dx[direction];
         int ny = y + dy[direction];
-        if (nx < 0 || nx >= 8 || ny < 0 || ny >= 8) {
+        if (x < 0 || x >= 8 || y < 0 || y >= 8) {
             return false;
         }
-        
         // 盤上のコマを取得
         Disc disc = discs.getDiscAtLocation(nx, ny);
 
@@ -34,11 +33,12 @@ public class GameMaster {
         }
         // ひっくり返すべきコマがあるか再帰的に判定
         boolean canFlip=canFlip(discs,nx,ny,color, direction);
-        if (canFlip) {
+        if (!canFlip) {
+            disc.setColor(color);
             return true;
         } else {
             // ひっくり返すべきコマがない場合は、falseを返す
-            return true;
+            return false;
         }
     }
 }
