@@ -7,7 +7,7 @@ public class Disc {
     private int x;
     private int y;
     private String color;
-    // private boolean placed;
+    private boolean placed;
 
     /**
      * 指定された座標と色で新しいDiscを構築します。
@@ -46,17 +46,17 @@ public class Disc {
         return color;
     }
 
-    // public void setColor(String color) {
-    //     this.color = color;
-    // }
+    public void setColor(String color) {
+        this.color = color;
+    }
 
-    // public boolean isPlaced() {
-    //     return placed;
-    // }
+    public boolean isPlaced() {
+        return placed;
+    }
 
-    // public void setPlaced(boolean placed) {
-    //     this.placed = placed;
-    // }
+    public void setPlaced(boolean placed) {
+        this.placed = placed;
+    }
     
 }
 

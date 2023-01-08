@@ -54,7 +54,6 @@ public class Board extends JFrame {
     
         frame.setVisible(true);
     }
-    
     /**
      * ボードを描画するパネルを表す内部クラス。
      */
@@ -62,7 +61,6 @@ public class Board extends JFrame {
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
-
             // ボードを描画
             for (int i = 0; i < BOARD_SIZE; i++) {
                 for (int j = 0; j < BOARD_SIZE; j++) {
@@ -79,52 +77,49 @@ public class Board extends JFrame {
                     }
                 }
             }
-
             // グリッド線を描画
             g.setColor(Color.BLACK);
             for (int i = 0; i <= BOARD_SIZE; i++) {
                 g.drawLine(i * CELL_SIZE, 0, i * CELL_SIZE, BOARD_SIZE * CELL_SIZE);
                 g.drawLine(0, i * CELL_SIZE, BOARD_SIZE * CELL_SIZE, i * CELL_SIZE);
             }
-
-            // ボードでクリックされたときにリスナーを追加
-            addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    // クリックされたセルの座標を取得
-                    int x = e.getX() / CELL_SIZE;
-                    int y = e.getY() / CELL_SIZE;
-
-                    // この位置にあるディスクを取得
-                    Disc disc = discs.getDiscAtLocation(x, y);
-
-                    // この位置にすでにディスクがある場合は何もしない
-                    if (disc != null) {
-                        return;
-                    }
-                    // この位置にディスクを設置できるかを確認
-                    // if (!canPutDisc(x, y)) {
-                    //     return;
-                    // }
-                      // この位置にディスクを設置できるかを確認
-                    // if (!GameMaster.canFlip(discs, x, y, lastPiecePlaced, 0)) {
-                    //     return;
-                    // }
-                    // 最後に置かれたピースの色を反転させ、新しいピースの色を設定
-                    String newColor = discs.getLastDicsPlaced().equals("X") ? "O" : "X";
-                    discs.setLastDiscPlaced(newColor);
-
-                    // 新しいピースを設置
-                    Disc newDisc = new Disc(x, y, newColor);
-                    discs.addDisc(newDisc);
-                    String gameResult = discs.JudgeGame();
-                    // ゲームの状態を更新し、ボードを再描画
-                    repaint();
-                    if (!gameResult.isEmpty()) {
-                        showMessageWindow(gameResult);
-                    }
+        // ボードでクリックされたときにリスナーを追加
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // クリックされたセルの座標を取得
+                int x = e.getX() / CELL_SIZE;
+                int y = e.getY() / CELL_SIZE;
+                
+                // // この位置にあるディスクを取得
+                // Disc disc = discs.getDiscAtLocation(x, y);
+                // // この位置にすでにディスクがある場合は何もしない
+                // if (disc != null) {
+                //     return;
+                // }
+                // 最後に置かれたピースの色を反転させ、新しいピースの色を設定
+                String newColor = discs.getLastDicsPlaced().equals("X") ? "O" : "X";
+                // 新しいピースを置けるか判定
+                boolean canFlip = false;
+                for (int i = 0; i < 8; i++) {
+                    canFlip |= GameMaster.canFlip(discs, x, y, newColor, i );
                 }
-            });
+                if (!canFlip) {
+                    // 新しいピースを置けない場合は何もしない
+                    return;
+                }
+                discs.setLastDiscPlaced(newColor);
+                // 新しいピースを設置
+                Disc newDisc = new Disc(x, y, newColor);
+                discs.addDisc(newDisc);
+                String gameResult = discs.JudgeGame();
+                // ゲームの状態を更新し、ボードを再描画
+                repaint();
+                if (!gameResult.isEmpty()) {
+                    showMessageWindow(gameResult);
+                }
+            }
+        });
         }
     }
 }
