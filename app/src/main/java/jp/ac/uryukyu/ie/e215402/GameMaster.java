@@ -21,7 +21,7 @@ public static boolean canFlip(DiscManager discs, int x, int y, String color) {
     for (int i = 0; i < 8; i++) {
         int nx = x + dx[i];
         int ny = y + dy[i];
-        // 盤外に出ていたらスキップ
+        // 盤外に出ていたらスキップcan
         if (nx < 0 || nx >= 8 || ny < 0 || ny >= 8) {
             continue;
         }
