@@ -19,7 +19,7 @@ public class Disc {
         this.x = x;
         this.y = y;
         this.color = color;
-        // this.placed = true; // コマを設置する
+        this.placed = true; // コマを設置する
     }
 
     /**

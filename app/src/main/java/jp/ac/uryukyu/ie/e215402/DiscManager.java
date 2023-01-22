@@ -85,8 +85,10 @@ public class DiscManager {
         for (Disc disc : discs) {
             if (disc.getColor().equals("X")) {
                 blackCount++;
+                System.out.println(blackCount);
             } else if (disc.getColor().equals("O")) {
                 whiteCount++;
+                System.out.println(whiteCount);
             }
         }
         if(blackCount+whiteCount==64){

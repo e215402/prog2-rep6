@@ -14,33 +14,51 @@ public class GameMaster {
      * @param x 置かれるコマのx座標
      * @param y 置かれるコマのy座標
      * @param color 置かれるコマの色
-     * @param direction 方向
      * @return ひっくり返すべきならtrue、そうでないならfalse
      */
-    public static boolean canFlip(DiscManager discs, int x, int y, String color, int direction) {
-        // 盤外に出ていたらfalseを返す
-        int nx = x + dx[direction];
-        int ny = y + dy[direction];
-        if (x < 0 || x >= 8 || y < 0 || y >= 8) {
-            return false;
+public static boolean canFlip(DiscManager discs, int x, int y, String color) {
+    boolean canFlip = false;
+    for (int i = 0; i < 8; i++) {
+        int nx = x + dx[i];
+        int ny = y + dy[i];
+        // 盤外に出ていたらスキップ
+        if (nx < 0 || nx >= 8 || ny < 0 || ny >= 8) {
+            continue;
         }
         // 盤上のコマを取得
         Disc disc = discs.getDiscAtLocation(nx, ny);
-
-        // コマが存在しないか、自分と同じ色だったらfalseを返す
+        // コマが存在しないか、自分と同じ色だったらスキップ
         if (disc == null || disc.getColor().equals(color)) {
-            return false;
+            continue;
         }
-        // ひっくり返すべきコマがあるか再帰的に判定
-        boolean canFlip=canFlip(discs,nx,ny,color, direction);
-        if (!canFlip) {
-            disc.setColor(color);
-            return true;
-        } else {
-            // ひっくり返すべきコマがない場合は、falseを返す
-            return false;
+        // 直前の色が違う色だったら
+        if(disc.getColor() != color) {
+            int nextX = nx + dx[i];
+            int nextY = ny + dy[i];
+            // 一度も自分の色が見つからなかったらfalse
+            while(nextX >= 0 && nextX < 8 && nextY >= 0 && nextY < 8) {
+                Disc nextDisc = discs.getDiscAtLocation(nextX, nextY);
+                if(nextDisc == null) {
+                    break;
+                }
+                if(nextDisc.getColor().equals(color)) {
+                    while(nextX != x || nextY != y) {
+                        nextX -= dx[i];
+                        nextY -= dy[i];
+                        if(nextX==x && nextY==y) continue;
+                        Disc flipDisc = discs.getDiscAtLocation(nextX, nextY);
+                        flipDisc.setColor(color);
+                    }
+                    canFlip = true;
+                    break;
+                }
+                nextX += dx[i];
+                nextY += dy[i];
+                }
+            }
         }
-    }
+    return canFlip;
+}
 }
 
 

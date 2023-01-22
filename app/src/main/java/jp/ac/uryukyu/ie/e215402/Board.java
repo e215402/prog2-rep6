@@ -93,11 +93,8 @@ public class Board extends JFrame {
                 
                 // 最後に置かれたピースの色を反転させ、新しいピースの色を設定
                 String newColor = discs.getLastDicsPlaced().equals("X") ? "O" : "X";
-                // 新しいピースを置けるか判定
-                boolean canFlip = false;
-                for (int i = 0; i < 8; i++) {
-                    canFlip |= GameMaster.canFlip(discs, x, y, newColor, i );
-                }
+                //ディスクが設置可能か確認
+                boolean canFlip = GameMaster.canFlip(discs, x, y, newColor);
                 if (!canFlip) {
                     // 新しいピースを置けない場合は何もしない
                     return;
