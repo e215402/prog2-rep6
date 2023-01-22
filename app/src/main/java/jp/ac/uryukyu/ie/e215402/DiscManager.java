@@ -38,8 +38,7 @@ public class DiscManager {
 
     /**
      * 最後に置かれたディスクの色を取得する。
-     * 
-     * @param lastDiscPlaced 最後に置かれたディスクの色
+     * @return 最後に置かれたディスクの色
      * */
     public String getLastDicsPlaced() {
         return LastDiscPlaced;
@@ -48,7 +47,6 @@ public class DiscManager {
     /**
      * 最後に置かれたディスクの色を設定する。
      * 
-     * @param lastDiscPlaced 最後に置かれたディスクの色
     **/
     public void setLastDiscPlaced(String LastDiscPlaced) {
         this.LastDiscPlaced = LastDiscPlaced;
@@ -70,6 +68,11 @@ public class DiscManager {
         return null;
     }
     
+    /**
+     * 指定された位置にあるディスクを取得する。
+     * 
+     * @return ディスクの数
+     */
     public int getDiscCount() {
         return discs.size();
     }
@@ -85,10 +88,10 @@ public class DiscManager {
         for (Disc disc : discs) {
             if (disc.getColor().equals("X")) {
                 blackCount++;
-                System.out.println(blackCount);
+                // System.out.println(blackCount);
             } else if (disc.getColor().equals("O")) {
                 whiteCount++;
-                System.out.println(whiteCount);
+                // System.out.println(whiteCount);
             }
         }
         if(blackCount+whiteCount==64){

@@ -9,6 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 
+    /**
+     * オセロのボードを表示
+     */
 public class Board extends JFrame {
     // 定数
     private static final int BOARD_SIZE = 8; // ボードのサイズ
@@ -19,7 +22,7 @@ public class Board extends JFrame {
     private DiscManager discs; // ディスクのリスト
 
     /**
-     * コンストラクタ。
+     * コンストラクタ
      */
     public Board() {
         // ディスクのリストを初期化
@@ -40,7 +43,7 @@ public class Board extends JFrame {
     /**
      * ゲーム終了画面
      * 
-     * @param message
+     * @param message メッセージを表示する
      */
     public void showMessageWindow(String message) {
         JFrame frame = new JFrame();
@@ -55,7 +58,7 @@ public class Board extends JFrame {
         frame.setVisible(true);
     }
     /**
-     * ボードを描画するパネルを表す内部クラス。
+     * ボードを描画するパネルを表すインナークラス。
      */
     private class GameBoard extends JPanel {
         @Override
@@ -90,7 +93,6 @@ public class Board extends JFrame {
                 // クリックされたセルの座標を取得
                 int x = e.getX() / CELL_SIZE;
                 int y = e.getY() / CELL_SIZE;
-                
                 // 最後に置かれたピースの色を反転させ、新しいピースの色を設定
                 String newColor = discs.getLastDicsPlaced().equals("X") ? "O" : "X";
                 //ディスクが設置可能か確認

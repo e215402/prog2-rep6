@@ -12,7 +12,7 @@ public class GameMasterTest {
         discs.addDisc(new Disc(3, 4, "O"));
     
         // (5, 5) の位置に "X" のコマを置いた場合、ひっくり返すことができる
-        boolean result = GameMaster.canFlip(discs, 5, 5, "X");
+        boolean result = GameMaster.canFlip(discs, 5, 3, "X");
         System.out.println("期待される結果: true / 実際の結果 : " + result);
     
         // (3, 4) の位置に "X" のコマを置いた場合、ひっくり返すことができない
